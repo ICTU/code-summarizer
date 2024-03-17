@@ -5,6 +5,7 @@ from pathlib import Path
 from unittest.mock import Mock, patch
 
 from langchain_core.messages.base import BaseMessage
+
 from summarizer.summarize import summarize_path
 from summarizer.summary import Summary
 

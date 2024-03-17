@@ -4,6 +4,7 @@ import unittest
 from unittest.mock import Mock, patch
 
 from langchain_core.messages.base import BaseMessage
+
 from summarizer.app import main
 
 
