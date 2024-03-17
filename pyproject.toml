@@ -1,0 +1,72 @@
+[project]
+name = "Summarizer"
+version = "0.1"
+dependencies = [
+    "langchain-openai == 0.0.8",
+]
+
+[project.scripts]
+summarizer = "summarizer.app:main"
+
+[project.optional-dependencies]
+dev = [
+    "bandit == 1.7.8",
+    "coverage == 7.4.3",
+    "fixit == 2.1.0",
+    "green == 4.0.0",
+    "mypy == 1.8.0",
+    "pip == 24.0",
+    "ruff == 0.3.2",
+    "twine == 5.0.0",
+    "vulture == 2.11",
+]
+
+[tool.coverage.run]
+source = ["."]
+branch = true
+relative_files = true
+
+[tool.coverage.report]
+fail_under = 100
+skip_covered = true
+
+[tool.coverage.xml]
+output = "build/coverage.xml"
+
+[tool.mypy]
+strict = true
+
+[[tool.mypy.overrides]]
+module = ["tests.*"]
+allow_untyped_defs = true  # Allow for not specifying None as return value on every test method
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "ANN101",  # Prevent 'Missing type annotation for `self` in method' errors
+    "ANN102",  # Prevent 'Missing type annotation for `cls` in classmethod' errors
+    "C408",    # Prevent 'Unnecessary `dict` call (rewrite as a literal)' errors
+    "COM812",  # This rule may cause conflicts when used with the ruff formatter
+    "D107",    # Prevent 'Missing docstring in `__init__`' errors
+    "D203",    # Prevent warning about incompatible rules
+    "D213",    # Prevent warning about incompatible rules
+    "DTZ005",  # Prevent 'The use of `datetime.datetime.now()` without `tz` argument is not allowed' errors
+    "FBT003",  # Prevent 'Boolean positional value in function call' errors
+    "ISC001",  # This rule may cause conflicts when used with the ruff formatter
+    "PT",      # We don't use Pytest
+    "TCH001",  # Prevent 'Move application import `...` into a type-checking block' errors
+    "TCH002",  # Prevent 'Move third-party import `...` into a type-checking block' errors
+    "TCH003",  # Prevent 'Move standard library import `...` into a type-checking block' errors
+    "TID252",  # Prevent 'Relative imports from parent modules are banned' errors
+]
+
+[tool.ruff.lint.isort]
+section-order = ["future", "standard-library", "third-party", "first-party", "local-folder"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["D104"]
+"tests/*" = ["ANN201"]

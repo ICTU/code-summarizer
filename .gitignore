@@ -1,0 +1,12 @@
+.*_cache
+.coverage*
+.DS_Store
+.venv
+.vscode
+**/__pycache__/**
+**/*.egg-info
+build
+dist
+html
+htmlcov
+venv
