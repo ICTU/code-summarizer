@@ -7,7 +7,7 @@ The information below is aimed at people who (want to help) develop Summarizer.
 Clone the repository:
 
 ```console
-git clone https://github.com/ictu/summarizer.git
+git clone https://github.com/ictu/code-summarizer.git
 ```
 
 Create a virtual environment, activate it, and install Summarizer in development mode, including development-only dependencies:
