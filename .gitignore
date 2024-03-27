@@ -1,4 +1,4 @@
-.*_cache
+.*_cache*
 .coverage*
 .DS_Store
 .venv
